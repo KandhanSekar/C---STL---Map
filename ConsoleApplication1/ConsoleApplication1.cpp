@@ -7,7 +7,31 @@
 using namespace std;
 //map with string as key (name here) and value is a vector storing two marks of the string
 map<string, vector<int>>a;
+void special(int t, string h, int e, int f)
+{
 
+	map<string, vector<int>>::iterator iter = a.find(h);
+	if (iter != a.end())
+	{
+		if (t == 1)
+		{
+			(*iter).second[0] = e;
+		}
+		else if (t == 2)
+		{
+			(*iter).second[1] = e;
+
+		}
+		else
+		{
+			(*iter).second[0] = e;
+			(*iter).second[1] = f;
+
+
+		}
+	}
+
+}
 void findanddel(string ar)
 {
 	map<string,vector<int>>::iterator iter=a.find(ar);
@@ -36,7 +60,7 @@ int main()
 	
 	cout << "\n MAP Implementation \n";
 	
-	cout << "Operations \n 1. Insert new record \n 2.Display all\n 3. Delete this record ";
+	cout << "Operations \n 1. Insert new record \n 2.Display all\n 3. Delete this record \n 4. Size \n 5.Change Value";
 	int opt;
 	cin >> opt;
 	switch (opt) {
@@ -77,11 +101,53 @@ int main()
 	}
 
 	break;
+	case 4:
+	{
+		cout << a.size();
+	}
+	break;
+	case 5:
+	{
+		cout << "\n what string;s mark do u want to change?";
+		string d;
+		cin >> d;
+		cout << "which mark?1. for mar1\n 2. for mar 2\n 3 . for both ";
+		int opton;
+		cin >> opton;
+		if (opton == 1)
+		{
+			cout << "\n enter new mar 1";
+			int mar1;
+			cin >> mar1;
+			special(1,d, mar1, 0);
+
+		}
+		if (opton == 2)
+		{
+			cout << "\n enter new mar 1";
+			int mar2;
+			cin >> mar2;
+			special(2,d, mar2, 0);
+
+		}
+		if (opton == 3)
+		{
+			cout << "\n enter new mar 1";
+			int mar1;
+			cin >> mar1;
+			int mar2;
+			cin >> mar2;
+			special(3,d, mar1,mar2);
+
+		}
+	}
+	break;
+
 	}
 	//Operations\n 2. Delete record \n 3. Modify record \n 4. Find and display \n 5
-
 	main();
 	return 0;
 
 }
+
 
