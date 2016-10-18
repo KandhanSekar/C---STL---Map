@@ -60,7 +60,7 @@ int main()
 	
 	cout << "\n MAP Implementation \n";
 	
-	cout << "Operations \n 1. Insert new record \n 2.Display all\n 3. Delete this record \n 4. Size \n 5.Change Value";
+	cout << "Operations \n 1. Insert new record \n 2.Display all\n 3. Delete this record \n 4. Size \n 5.Change Value\n 6. Count";
 	int opt;
 	cin >> opt;
 	switch (opt) {
@@ -142,9 +142,16 @@ int main()
 		}
 	}
 	break;
-
+	case 6:
+	{
+		string h;
+		cout << "\n enter the element whose count u want to return";
+//ALWAYS 1 in normal map.
+		cin >> h;
+		cout << a.count(h);
 	}
-	//Operations\n 2. Delete record \n 3. Modify record \n 4. Find and display \n 5
+	break;
+	}
 	main();
 	return 0;
 
